@@ -16,3 +16,19 @@ class ClusterGenerator:
                 datapoint.append(center_y + random.uniform(-max_distance, max_distance))
                 datapoints.append(datapoint)
         return datapoints
+
+    def create_clusters_3D(self, num_clusters, range_x, range_y, range_z, range_points, max_distance, seed=42):
+        datapoints = []
+        random.seed(seed)
+        for cluster in range(num_clusters):
+            center_x = random.uniform(*(range_x))
+            center_y = random.uniform(*(range_y))
+            center_z = random.uniform(*(range_z))
+            for i in range(random.randint(*(range_points))):
+                datapoint = []
+                datapoint.append(cluster)
+                datapoint.append(center_x + random.uniform(-max_distance, max_distance))
+                datapoint.append(center_y + random.uniform(-max_distance, max_distance))
+                datapoint.append(center_z + random.uniform(-max_distance, max_distance))
+                datapoints.append(datapoint)
+        return datapoints
