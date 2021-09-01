@@ -32,3 +32,13 @@ class ClusterGenerator:
                 datapoint.append(center_z + random.uniform(-max_distance, max_distance))
                 datapoints.append(datapoint)
         return datapoints
+
+class FunctionGenerator:
+
+    def create_data_2d(self, function, range_x, num_datapoints, max_distance, seed=42):
+        datapoints = []
+        for i in range(num_datapoints):
+            x = random.uniform(*(range_x))
+            y = function(x) + random.uniform(-max_distance, max_distance)
+            datapoints.append([x,y])
+        return datapoints
