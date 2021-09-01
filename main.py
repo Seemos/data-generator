@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from generators import ClusterGenerator
-import numpy as np
+from generators import FunctionGenerator
 
 def main():
     num_clusters = 5
@@ -39,6 +39,20 @@ def main():
     plt.xlabel('X-axis')
     plt.ylabel('Y-axis')
     plt.savefig("clusters_3D")
+    plt.show()
+
+    def parabula(x):
+        return x**2 - 3
+
+    generator = FunctionGenerator()
+    datapoints = generator.create_data_2d(parabula, (-5,5), 30, 3)
+    data_x = [datapoint[0] for datapoint in datapoints]
+    data_y = [datapoint[1] for datapoint in datapoints]
+    plt.scatter(data_x, data_y)
+    plt.title("2D Function Data")
+    plt.xlabel('X-axis')
+    plt.ylabel('Y-axis')
+    plt.savefig("function_2D")
     plt.show()
 
 if __name__ == "__main__":
