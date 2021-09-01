@@ -42,3 +42,12 @@ class FunctionGenerator:
             y = function(x) + random.uniform(-max_distance, max_distance)
             datapoints.append([x,y])
         return datapoints
+
+    def create_data_3d(self, function, range_x, range_y, num_datapoints, max_distance, seed=42):
+        datapoints = []
+        for i in range(num_datapoints):
+            x = random.uniform(*(range_x))
+            y = random.uniform(*(range_y))
+            z = function(x,y) + random.uniform(-max_distance, max_distance)
+            datapoints.append([x,y,z])
+        return datapoints
