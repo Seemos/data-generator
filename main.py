@@ -55,5 +55,22 @@ def main():
     plt.savefig("function_2D")
     plt.show()
 
+    def function_3d(x,y):
+        return x**2 - y**2
+    
+    datapoints = generator.create_data_3d(function_3d, (-8,8), (-8,8), 500, 3)
+    data_x = [datapoint[0] for datapoint in datapoints]
+    data_y = [datapoint[1] for datapoint in datapoints]
+    data_z = [datapoint[2] for datapoint in datapoints]
+    
+    fig = plt.figure(figsize = (10, 7))
+    ax = plt.axes(projection ="3d")
+    ax.scatter3D(data_x, data_y, data_z, c = data_z)
+    plt.title("3D Function Data")
+    plt.xlabel('X-axis')
+    plt.ylabel('Y-axis')
+    plt.savefig("function_3D")
+    plt.show()
+
 if __name__ == "__main__":
     main()
